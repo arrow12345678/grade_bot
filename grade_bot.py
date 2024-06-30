@@ -149,10 +149,10 @@ def check_student(student_id, chat_id):
 def check_student_loop(student_id, chat_id):
     while student_id in students_being_checked:
         check_student(student_id, chat_id)
-        time.sleep(1)  # Check every 60 seconds (adjust as needed)
+        time.sleep(30)  # Check every 60 seconds (adjust as needed)
     while student_id in students_being_checked:
         check_student(student_id, chat_id)
-        time.sleep(1)  # Check every 60 seconds (adjust as needed)
+        time.sleep(30)  # Check every 60 seconds (adjust as needed)
 # معالج الأمر /check_continuously
 @bot.message_handler(commands=['check_continuously'])
 def check_continuously(message):
