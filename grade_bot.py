@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # استبدل 'YOUR_TELEGRAM_BOT_TOKEN' برمز بوت تلغرام الخاص بك
-bot = telebot.TeleBot('7296304236:AAGfHWbzrbh1e0fm9czpU57rbkizp7ZwwGs')
+bot = telebot.TeleBot('7296304236:AAFD9wd9OGD5INN5YrZhs6U-ISw_rI5xsBo')
 
 URL = 'https://exam.albaath-univ.edu.sy/exam-it/re.php'
 RESULTS_URL = "https://exam.albaath-univ.edu.sy/exam-it/re.php"
