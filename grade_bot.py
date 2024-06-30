@@ -156,17 +156,14 @@ def check_student_loop(student_id, chat_id):
 # معالج الأمر /check_continuously
 @bot.message_handler(commands=['check_continuously'])
 def check_continuously(message):
-    student_id = message.text.split()[1]  # الحصول على الرقم الجامعي من الأمر
+    student_id = message.text.split()[1]  
     chat_id = message.chat.id
 
-    if student_id in students_being_checked:
-        bot.reply_to(message, "أنا بالفعل أتحقق من النتائج لهذا الرقم الجامعي.")
-        return
-
-    students_being_checked[student_id] = True
-    thread = Thread(target=check_student_loop, args=(student_id, chat_id))
-    thread.start()
-    bot.reply_to(message, f"سأقوم بالتحقق من النتائج للرقم الجامعي {student_id} بشكل مستمر وإرسالها إليك عند توفرها.")
+    # Check for results immediately, then enter a loop
+    check_student(student_id, chat_id)
+    while True:  # Loop indefinitely
+        time.sleep(60)  # Check every 60 seconds (adjust as needed)
+        check_student(student_id, chat_id)
 # معالج الأمر /start
 @bot.message_handler(commands=['start', 'help'])
 def start(message):
