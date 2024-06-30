@@ -1,1 +1,1 @@
-py grade_bot.py
+web: python grade_bot.py
